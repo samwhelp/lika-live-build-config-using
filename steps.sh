@@ -330,6 +330,15 @@ master_var_init () {
 	REF_TARGET_OVERLAY_MASTER_PACKAGE_INSTALL_DIR_PATH="${REF_BUILD_LIVE_CONFIG_DIR_PATH}/${REF_TARGET_OVERLAY_MASTER_PACKAGE_INSTALL_DIR_NAME}"
 
 
+	##
+	## ## Build Live Config / Installer
+	##
+
+	REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_NAME="installer/calamares"
+	REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_PATH="${REF_PLAN_FACTORY_DIR_PATH}/${REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_NAME}"
+
+	REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_NAME="etc/calamares"
+	REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_PATH="${REF_TARGET_OVERLAY_MASTER_OS_DIR_PATH}/${REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_NAME}"
 
 
 	##
@@ -341,7 +350,6 @@ master_var_init () {
 
 	REF_TARGET_OVERLAY_MASTER_HOOK_DIR_NAME="hooks/normal"
 	REF_TARGET_OVERLAY_MASTER_HOOK_DIR_PATH="${REF_BUILD_LIVE_CONFIG_DIR_PATH}/${REF_TARGET_OVERLAY_MASTER_HOOK_DIR_NAME}"
-
 
 
 
@@ -485,6 +493,24 @@ master_var_dump () {
 	util_debug_echo
 	util_debug_echo "REF_ISO_TEMPLATE_TARGET_DIR_NAME=${REF_ISO_TEMPLATE_TARGET_DIR_NAME}"
 	util_debug_echo "REF_ISO_TEMPLATE_TARGET_DIR_PATH=${REF_ISO_TEMPLATE_TARGET_DIR_PATH}"
+
+
+
+
+
+	##
+	## ## Build Live Config / Installer
+	##
+
+	util_debug_echo
+	util_debug_echo "REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_NAME=${REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_NAME}"
+	util_debug_echo "REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_PATH=${REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_PATH}"
+
+	util_debug_echo
+	util_debug_echo "REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_NAME=${REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_NAME}"
+	util_debug_echo "REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_PATH=${REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_PATH}"
+
+
 
 
 	util_debug_echo
@@ -798,6 +824,8 @@ lika_build_iso_overlay () {
 
 	lika_master_os_package_overlay
 
+	lika_master_os_installer_overlay
+
 	lika_live_build_config_hook_overlay
 
 
@@ -893,6 +921,42 @@ lika_master_os_package_overlay () {
 	util_error_echo
 	util_error_echo "##"
 	util_error_echo "## ## Lika / Master OS / Package"
+	util_error_echo "##"
+	util_error_echo
+
+
+	util_error_echo
+	util_error_echo mkdir -p "${source_dir_path}"
+	mkdir -p "${source_dir_path}"
+
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_dir_path}"
+	mkdir -p "${target_dir_path}"
+
+
+	util_error_echo
+	util_error_echo cp -rf "${source_dir_path}/." "${target_dir_path}"
+	cp -rf "${source_dir_path}/." "${target_dir_path}"
+
+
+	return 0
+}
+
+
+##
+## ## Lika / Master OS / Installer
+##
+
+lika_master_os_installer_overlay () {
+
+
+	local source_dir_path="${REF_SOURCE_OVERLAY_MASTER_INSTALLER_DIR_PATH}"
+	local target_dir_path="${REF_TARGET_OVERLAY_MASTER_INSTALLER_DIR_PATH}"
+
+	util_error_echo
+	util_error_echo "##"
+	util_error_echo "## ## Lika / Master OS / Installer"
 	util_error_echo "##"
 	util_error_echo
 
