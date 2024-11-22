@@ -7,4 +7,4 @@
 ## # Build ISO
 ##
 
-sudo ./steps.sh amd64
+sudo ./steps.sh "${@}"
