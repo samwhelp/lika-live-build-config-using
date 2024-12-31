@@ -1,9 +1,8 @@
 
 
-> **Still in development**
-
-
 # lika-live-build-config-using
+
+> [lika-live-build-config-using](https://samwhelp.github.io/lika-live-build-config-using/)
 
 
 
