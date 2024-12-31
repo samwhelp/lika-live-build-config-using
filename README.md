@@ -2,7 +2,7 @@
 
 # Home
 
-> lika-live-build-config-using
+> [lika-live-build-config-using](https://github.com/samwhelp/lika-live-build-config-using)
 
 
 
